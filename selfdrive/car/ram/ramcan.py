@@ -58,7 +58,10 @@ def create_lkas_hud(packer, enabled, leftLaneVisible, rightLaneVisible, autoHigh
       lane_visibility_signal = 0x4    # Neither lane border shown
   else:
     lane_visibility_signal = 0x4      # Neither lane border shown
-
+    
+  if CS.out.autoHighBeamBit == 1:
+     autoHighBeamBit = 1
+  else: autoHighBeamBit = 0
   values = {
     "LKAS_HUD": lane_visibility_signal,
     "AUTO_HIGH_BEAM_BIT": autoHighBeamBit,
