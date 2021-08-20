@@ -19,7 +19,7 @@ class CarController():
     self.packer = CANPacker(dbc_name)
 
   def update(self, enabled, CS, frame, actuators, pcm_cancel_cmd, leftLaneVisible,
-             rightLaneVisible):  # TODO hud_alert
+             rightLaneVisible, autoHighBeamBit):  # TODO hud_alert
     P = CarControllerParams
     
     steer_ready = CS.out.vEgo > CS.CP.minSteerSpeed
@@ -55,6 +55,6 @@ class CarController():
       can_sends.append(create_lkas_command(self.packer, int(apply_steer), counter, self.steer_command_bit))
 
     if frame % 5 == 0:
-      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible))
+      can_sends.append(create_lkas_hud(self.packer, enabled, leftLaneVisible, rightLaneVisible, autoHighBeamBit))
     
     return can_sends
