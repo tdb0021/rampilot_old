@@ -14,7 +14,7 @@ class CarState(CarStateBase):
     ret = car.CarState.new_message()
 
     self.steer_command_bit = cp_cam.vl["FORWARD_CAMERA_LKAS"]['LKAS_CONTROL_BIT']
-    ret.autoHighBeamBit = bool(cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT']) # maybe this instead of cruisestate
+    ret.autoHighBeamBit = cp_cam.vl["FORWARD_CAMERA_HUD"]['AUTO_HIGH_BEAM_BIT']
 
     ret.doorOpen = any([cp.vl["DOORS"]['DOOR_OPEN_LF'],
                         cp.vl["DOORS"]['DOOR_OPEN_RF'],
@@ -135,7 +135,7 @@ class CarState(CarStateBase):
       ("ACC_SET_SPEED", "FORWARD_CAMERA_CLUSTER", -1),
 #      ("LKAS_HUD", "FOWARD_CAMERA_HUD", -1),
       ("LKAS_CONTROL_BIT", "FORWARD_CAMERA_LKAS", 0),
-      ("AUTO_HIGH_BEAM_BIT", "FORWARD_CAMERA_HUD", 0),
+      ("AUTO_HIGH_BEAM_BIT", "FORWARD_CAMERA_HUD", -1),
     ]
     checks = [
       ("FORWARD_CAMERA_LKAS", 50),
