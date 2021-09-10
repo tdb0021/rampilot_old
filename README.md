@@ -1,4 +1,4 @@
-rampilot: a dashcam that also drives your truck. 
+rampilot: a dashcam that also drives your truck. This made possible by @tunder! (github.com/tundergit) 
 
 Current limitations:
 - Only supports Ram 1500 models with stock ACC/Lanesense.
